@@ -7,7 +7,11 @@ const Login = () => {
  
     const submitHandler=(e)=>{
         e.preventDefault()
-        console.log("Hello Guys  You are logged in ");
+        console.log("email is ",email)
+        console.log("password is ",password)
+
+        setEmail("")
+        setPassword("")
     }
 
 
@@ -19,8 +23,24 @@ const Login = () => {
                 submitHandler(e)
             }}
             className='flex flex-col items-center justify-center'>
-                <input required   className=' text-white outline-none bg-transparent border-2 border-emerald-600 rounded-full py-3 text-xl placeholder:text-gray-400 m-3 placeholder:text-center' type="email" placeholder='Enter Your Email  ' />
-                <input required className=' text-white outline-none bg-transparent border-2 border-emerald-600 rounded-full py-3 text-xl placeholder:text-gray-400 placeholder:bg-center placeholder:text-center' type="password" placeholder='Enter Password' />
+                <input
+                value={email}
+                onChange={(e)=>{
+                    setEmail(e.target.value)
+                    
+                }}
+                required
+                   className=' text-white outline-none bg-transparent border-2 border-emerald-600 rounded-full py-3 text-xl placeholder:text-gray-400 m-3 placeholder:text-center' type="email" placeholder='Enter Your Email  ' />
+
+
+                <input 
+                value={password}
+                onChange={(e)=>{
+                    setPassword(e.target.value)
+
+                }}
+                required
+                 className=' text-white outline-none bg-transparent border-2 border-emerald-600 rounded-full py-3 text-xl placeholder:text-gray-400 placeholder:bg-center placeholder:text-center' type="password" placeholder='Enter Password' />
                 <button className=' text-white  outline-none border-none bg-emerald-600 rounded-3xl p-5 text-xl placeholder:text-gray-400 mt-5 '>Login</button>
             </form>
 
