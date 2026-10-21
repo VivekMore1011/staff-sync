@@ -2,8 +2,15 @@
 export const employees = [
   {
     id: 1,
-    email: "employee1@gmail.com",
+    firstName: "Rahul",
+    email: "e@e.com",
     password: "123",
+    taskCounts: {
+      active: 4,
+      newTask: 3,
+      completed: 1,
+      failed: 0
+    },
     tasks: [
       {
         taskTitle: "Complete Login Page",
@@ -59,8 +66,15 @@ export const employees = [
   },
   {
     id: 2,
+    firstName: "Priya",
     email: "employee2@gmail.com",
     password: "123",
+    taskCounts: {
+      active: 3,
+      newTask: 2,
+      completed: 1,
+      failed: 1
+    },
     tasks: [
       {
         taskTitle: "Design Profile Page",
@@ -116,8 +130,15 @@ export const employees = [
   },
   {
     id: 3,
+    firstName: "Amit",
     email: "employee3@gmail.com",
     password: "123",
+    taskCounts: {
+      active: 4,
+      newTask: 2,
+      completed: 1,
+      failed: 0
+    },
     tasks: [
       {
         taskTitle: "Build Task Card",
@@ -173,8 +194,15 @@ export const employees = [
   },
   {
     id: 4,
+    firstName: "Sneha",
     email: "employee4@gmail.com",
     password: "123",
+    taskCounts: {
+      active: 4,
+      newTask: 3,
+      completed: 1,
+      failed: 0
+    },
     tasks: [
       {
         taskTitle: "Create Admin Panel",
@@ -230,8 +258,15 @@ export const employees = [
   },
   {
     id: 5,
+    firstName: "Rohit",
     email: "employee5@gmail.com",
     password: "123",
+    taskCounts: {
+      active: 4,
+      newTask: 2,
+      completed: 1,
+      failed: 0
+    },
     tasks: [
       {
         taskTitle: "Implement Notifications",
@@ -290,22 +325,27 @@ export const employees = [
 export const admin = [
   {
     id: 1,
+    firstName: "Vikram",
     email: "admin@gmail.com",
     password: "123"
   }
 ];
 
+// Save initial data to localStorage
+export const setLocalStorage = () => {
+  localStorage.setItem("employees", JSON.stringify(employees));
+  localStorage.setItem("admin", JSON.stringify(admin));
+};
 
-export const  setLocalStorage=()=>{
-localStorage.setItem('employees',JSON.stringify(employees))
-localStorage.setItem('admin',JSON.stringify(admin))
+// Get data from localStorage
+export const getLocalStorage = () => {
+  const employees = JSON.parse(
+    localStorage.getItem("employees") || "[]"
+  );
 
-}
-export const  getLocalStorage=()=>{
+  const admin = JSON.parse(
+    localStorage.getItem("admin") || "[]"
+  );
 
-    const employees =JSON.parse (localStorage.getItem('employees'))
-
- const admin = JSON.parse(localStorage.getItem('admin'))
-
-    return{employees,admin}
-}
+  return { employees, admin };
+};
